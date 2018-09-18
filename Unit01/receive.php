@@ -36,6 +36,7 @@ mail($to, $subject, $message, "FROM: ".$email);
 	<head>
 	<meta charset="utf-8">
 		<title>Submission confirmed!</title>
+		<link rel="stylesheet" href="style.css">
 	</head>
 	
 	<body>
