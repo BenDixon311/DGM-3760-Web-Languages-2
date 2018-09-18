@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Assignment 1 - Send</title>
+	<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body id="home">
+	
+	<div class="container">
+
+    
+<form id="contact" action="receive.php" method="POST" enctype="multipart/form-data" >
+	
+	<h2>Sending form data to email through PHP</h2>
+    <fieldset>
+    <legend>Gender</legend>
+    <input type="radio" name="gender" value="male">Male<br>
+    <input type="radio" name="gender" value="female">Female<br>
+    <input type="radio" name="gender" value="none">Undisclosed<br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Contact</legend>
+		Name: <input type = "text" name = "name" placeholder="First and last name..."><br>
+        Email: <input type="email" name="emailaddress" placeholder="Enter email..."><br>
+        Phone: <input type="tel" name="phone" placeholder = "Enter Phone Number..."><br>
+    </fieldset>
+
+    <fieldset>
+        <legend>Comments</legend>
+        <p></p>
+        <textarea name="input" placeholder= "Please, let us know how you feel!" cols="50" rows="8"></textarea>
+
+    </fieldset>
+	
+
+
+    <button name = "submit" type="submit" id="contact-submit" data-submit="...Sending...">Submit</button>
+</form>
+</div>
+
+</body>
+</html>
