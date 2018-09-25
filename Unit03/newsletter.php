@@ -31,11 +31,9 @@ mysqli_close($dbconnect);
 	
 	<body>
 		<div class="container">
-<<<<<<< HEAD
+
 			<form class="contact">
-=======
-			<form id="contact">
->>>>>>> a1b43c7d3a848c2bf305b1240793226296bf2f6b
+
 	<h3><?php echo $name; ?>, Thanks for signing up for the newsletter!</h3>
 				</form>
 		</div>
