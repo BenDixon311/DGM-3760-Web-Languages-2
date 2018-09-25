@@ -1,15 +1,15 @@
 <?php
-
+$gender = $_POST['gender'];
 $name = $_POST['name'];
 $email = $_POST['emailaddress'];
 $phone= $_POST['phone'];
-
+$color = $_POST['favcolor'];
 
 //establish DB connection
-$dbconnect = mysqli_connect('localhost','bendix7_dgm3760','epitaph311','bendix7_dgm3760') or die('unable to connect to database');
+$dbconnect = mysqli_connect('localhost','bendix7_dgm3760','epitaph311','bendix7_dgm3760') or die('unable to connect to db');
 
 //build sql query
-$myQuery= "INSERT INTO newsletter(name, email, phone) VALUES ('$name','$email','$phone')";
+$myQuery= "INSERT INTO `test_inquiries`(`gender`, `name`, `email`, `phone`, `color`) VALUES ('$gender','$name','$email','$phone','$color')";
 
 
 //talk to DB
@@ -31,12 +31,8 @@ mysqli_close($dbconnect);
 	
 	<body>
 		<div class="container">
-<<<<<<< HEAD
-			<form class="contact">
-=======
 			<form id="contact">
->>>>>>> a1b43c7d3a848c2bf305b1240793226296bf2f6b
-	<h3><?php echo $name; ?>, Thanks for signing up for the newsletter!</h3>
+	<h3><?php echo $name; ?>, you've been added to the database</h3>
 				</form>
 		</div>
 	</body>
