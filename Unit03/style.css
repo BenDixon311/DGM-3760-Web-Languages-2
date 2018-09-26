@@ -30,7 +30,7 @@ body {
   position: relative;
 }
 
-<<<<<<< HEAD
+
 .contact input[type="text"],
 .contact input[type="email"],
 .contact input[type="tel"],
@@ -51,7 +51,7 @@ body {
 
 
 .contact h3 {
->>>>>>> a1b43c7d3a848c2bf305b1240793226296bf2f6b
+
   display: block;
   font-size: 30px;
   font-weight: 300;
@@ -60,7 +60,7 @@ body {
 
 
 .contact h4 {
->>>>>>> a1b43c7d3a848c2bf305b1240793226296bf2f6b
+
   margin: 5px 0 15px;
   display: block;
   font-size: 13px;
