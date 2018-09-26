@@ -1,5 +1,10 @@
 <?php
 
+$subject = $_POST[subject];
+$msg = $_POST[message];
+$from = "bendixon311@gmail.com";
+
+
 //establish DB connection
 $dbconnect = mysqli_connect('localhost','bendix7_dgm3760','epitaph311','bendix7_dgm3760') or die('unable to connect to database');
 
@@ -16,8 +21,13 @@ mysqli_close($dbconnect);
 //display table
 while ($row = mysqli_fetch_array($result)){
 	
-	echo $row['name'];
-	echo $row['email'];
+	$name = $row['name'];
+	$email = $row['email'];
+	$message = "Dear $name, $msg";
+	
+	mail($email, $subject, $message);
+	
+	echo 'Message sent to: ' . $email . '<br>';
 	
 }
 
@@ -38,7 +48,7 @@ while ($row = mysqli_fetch_array($result)){
 	
 	<body>
 		<div class="container">
-			<form id="contact">
+			<form class="contact">
 	<h3>Spam has been sent!</h3>
 				</form>
 		</div>
