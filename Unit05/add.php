@@ -10,7 +10,8 @@ $photo = $_POST['photo'];
 //photo path and name
 
  $ext = pathinfo($_FILES['photo']['name'], PATHINFO_EXTENSION);
- $filename = 'employees/'.$first.$last.'.'.$ext;
+ $filename = $first.$last.time().'.'.$ext;
+ $filepath = 'employees/';
 
 
 //---------------------verify image is valid-------------------
@@ -46,9 +47,27 @@ if ($validImage == true) {
 	//upload file
 	
 	$tmp_name = $_FILES['photo']['tmp_name'];
-	move_uploaded_file($tmp_name, $filename);
+	move_uploaded_file($tmp_name, "$filepath$filename");
 	
 	@unlink($_FILES['photo']['tmp_name']);
+	
+	//establish DB connection
+$dbconnect = mysqli_connect('localhost','bendix7_dgm3760','epitaph311','bendix7_dgm3760') or die('unable to connect to database');
+
+//build sql query
+$myQuery= "INSERT INTO Employees(first, last, dept, phone, photo) VALUES ('$first','$last','$dept', '$phone', '$filename')";
+
+
+//talk to DB
+$result = mysqli_query($dbconnect, $myQuery);
+	if ( false===$result ) {
+  printf("error: %s\n", mysqli_error($dbconnect));
+}
+
+
+//close connection
+mysqli_close($dbconnect);
+	
 }	
 	else {
 	//try again
@@ -56,18 +75,6 @@ if ($validImage == true) {
 	};
 
 
-//establish DB connection
-//$dbconnect = mysqli_connect('localhost','bendix7_dgm3760','epitaph311','bendix7_dgm3760') or die('unable to connect to database');
-
-//build sql query
-//$myQuery= "INSERT INTO Employees(first, last, dept, phone, photo) VALUES ('$first','$last','$dept', '$phone', '$photo')";
-
-
-//talk to DB
-//$result = mysqli_query($dbconnect, $myQuery) or die('unable to talk to database');
-
-//close connection
-//mysqli_close($dbconnect);
 
 ?>
 
@@ -81,10 +88,18 @@ if ($validImage == true) {
 <title>Submission</title>
 	<link rel="stylesheet" href="style.css">
 </head>
-	
-	
-
 <body>
+	<div class="container">
+
+			<form class="contact">
+	<?php
+		echo "$first $last <br>";
+		echo '<img src="'.$filepath.$filename.'" />';
 	
+	?>
+				
+		</form>
+	</div>
+
 </body>
 </html>

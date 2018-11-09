@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+<link href = "stylesheet.css" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Oswald:200,300,400,500">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	
+	<form action='?receive.php' method='GET' enctype='multipart/form-data'>
+		<fieldset>
+			<legend>Your Name</legend>
+			<label><span>First Name: </span><input name="first" class="input" value="" type="text" placeholder="Type your first name..." required pattern="[a-z]"></label> 
+			<label><span>Last Name: </span> <input name="last" class="input" value="" type="text" placeholder="Type your last name..." required pattern="[a-z]"></label> 
+		</fieldset><!-- name info fieldset -->
+
+		<fieldset>
+			<legend>Contact Info</legend>
+			<label><span>Email: </span><input name="email" class="input" value="" type="email" placeholder="bob@123.com" required></label> 
+
+			<label><span>Phone: </span><input name="telephone" class="input" value="" type="tel" placeholder="(801) 333-3333"></label> 
+		</fieldset>
+		
+		
+		<fieldset>
+			<legend>Gender</legend>
+			<label><input type="radio" name="gender" value="female">Female</label>
+			<label><input type="radio" name="gender" value="male">Male</label>
+			<label><input type="radio" name="gender" value="undisclosed">Prefer not to say</label>
+		</fieldset>
+		
+		
+		<p class="feedback">Which of these colors do you prefer?</p>
+			<select name="color">
+				<option value="blue">Blue</option>
+				<option value="red">Red</option>
+				<option value="yellow">Yellow</option>
+				<option value="purple">Purple</option>
+			</select>
+
+	
+	</form>
+	
+	
+</body>
+</html>
