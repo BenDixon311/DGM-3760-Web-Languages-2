@@ -89,6 +89,19 @@ mysqli_close($dbconnect);
 	<link rel="stylesheet" href="style.css">
 </head>
 <body>
+	
+	<!--navigation-->
+	<div class="navigation">
+		
+		<ul class="myNav">
+	<li><a href="viewall.php">View All Employees</a></li>
+		
+		<li><a href="delete.php">Delete Employee</a></li>
+		
+		<li><a href="index.html">Add Employee</a></li>
+	</ul>
+	</div>
+	
 	<div class="container">
 
 			<form class="contact">

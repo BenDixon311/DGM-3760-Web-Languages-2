@@ -1,32 +1,48 @@
 <?php
 
-$employee_id = $_GET[id];
-$filepath = 'employees/';
+$id = $_POST['id'];
+$first = $_POST['first'];
+$last = $_POST['last'];
+$dept = $_POST['dept'];
+$phone= $_POST['phone'];
 
+
+
+
+	
+	//establish DB connection
 $dbconnect = mysqli_connect('localhost','bendix7_dgm3760','epitaph311','bendix7_dgm3760') or die('unable to connect to database');
 
+//build sql query
+$myQuery= "UPDATE Employees SET first='$first', last='$last', dept='$dept', phone='$phone' WHERE id=$id";
 
-$query = "SELECT * FROM Employees WHERE id = $employee_id";
 
 
 
-$result = mysqli_query($dbconnect, $query) or die ('query failed, tho');
+//talk to DB
+$result = mysqli_query($dbconnect, $myQuery) or die('didnt work man');
+	
 
-$found = mysqli_fetch_array($result);
+
+//close connection
+mysqli_close($dbconnect);
+	
+
 
 
 ?>
+
+
+
 
 <!doctype html>
 <html>
 <head>
 <meta charset="utf-8">
-<title>Delete Record</title>
-		<link rel="stylesheet" href="style.css">
+<title>Submission</title>
+	<link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-	
 	
 	<!--navigation-->
 	<div class="navigation">
@@ -40,27 +56,20 @@ $found = mysqli_fetch_array($result);
 	</ul>
 	</div>
 	
-	
-	
-	
 	<div class="container">
 
 			<form class="contact">
 	<?php
-		echo '<h2>'.$found['first']. ' ' .$found['last'] . '</h2>';
-				
-		echo '<p>';
-		echo $found['dept'].'<br>'.$found['phone'];
-		echo '</p>';
-				
-				
-		echo '<img src="'.$filepath.$found['photo'].'" />';
+		echo "<h2>$first $last</h2> <br>";
+		echo "$dept <br>";
+		echo "$phone";		
+		
+		
 	
 	?>
 				
-				>
 		</form>
 	</div>
-	
+
 </body>
 </html>
