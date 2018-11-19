@@ -1,7 +1,7 @@
 <?php
 $dbconnect = mysqli_connect('localhost','bendix7_dgm3760','epitaph311','bendix7_dgm3760') or die('unable to connect to database');
 
-$query = "SELECT * FROM Employees ORDER BY last ASC";
+$query = "SELECT * FROM employee_db ORDER BY last ASC";
 
 $result = mysqli_query($dbconnect, $query) or die ('failed, you suck');
 

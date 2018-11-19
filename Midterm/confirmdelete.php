@@ -7,7 +7,7 @@ $dbconnect = mysqli_connect('localhost','bendix7_dgm3760','epitaph311','bendix7_
 
 if(isset($_POST['submit'])) {
 	
-	$query = "DELETE FROM Employees WHERE id=$_POST[id]";
+	$query = "DELETE FROM employee_db WHERE id=$_POST[id]";
 	
 	
 	
@@ -16,7 +16,7 @@ if(isset($_POST['submit'])) {
 	@unlink($_POST['photo']);
 	
 	//redirect after deltion
-	header("Location: http://dgm3760.bendixondev.com/Unit05/delete.php");
+	header("Location: http://dgm3760.bendixondev.com/Midterm/delete.php");
 	
 	exit; //make sure next query doesn't try to execute
 }

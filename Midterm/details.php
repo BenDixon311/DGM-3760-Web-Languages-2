@@ -6,7 +6,7 @@ $filepath = 'employees/';
 $dbconnect = mysqli_connect('localhost','bendix7_dgm3760','epitaph311','bendix7_dgm3760') or die('unable to connect to database');
 
 
-$query = "SELECT * FROM Employees WHERE id = $employee_id";
+$query = "SELECT * FROM employee_db WHERE id = $employee_id";
 
 
 

@@ -2,8 +2,10 @@
 
 $first = $_POST['first'];
 $last = $_POST['last'];
-$dept = $_POST['dept'];
+$expertise = $_POST['expertise'];
 $phone= $_POST['phone'];
+$email = $_POST['email'];
+$description = $_POST['description'];
 $photo = $_POST['photo'];
 
 
@@ -55,14 +57,20 @@ if ($validImage == true) {
 $dbconnect = mysqli_connect('localhost','bendix7_dgm3760','epitaph311','bendix7_dgm3760') or die('unable to connect to database');
 
 //build sql query
-$myQuery= "INSERT INTO Employees(first, last, dept, phone, photo) VALUES ('$first','$last','$dept', '$phone', '$filename')";
+$myQuery= "INSERT INTO employee_db(first, last, expertise, phone, email, description, photo) VALUES ('$first', '$last', '$expertise', '$phone', '$email', '$description', $filename')";
 
-
+echo $first;
+echo $last;
+echo $expertise;
+echo $phone;
+echo $email;
+echo $description;
+echo $filename;
 //talk to DB
-$result = mysqli_query($dbconnect, $myQuery);
-	if ( false===$result ) {
-  printf("error: %s\n", mysqli_error($dbconnect));
-}
+//$result = mysqli_query($dbconnect, $myQuery);
+//	if ( false===$result ) {
+//  printf("error: %s\n", mysqli_error($dbconnect));
+//}
 
 
 //close connection
@@ -107,7 +115,11 @@ mysqli_close($dbconnect);
 			<form class="contact">
 	<?php
 		echo "$first $last <br>";
-		echo '<img src="'.$filepath.$filename.'" />';
+		echo '<img src="'.$filepath.$filename.'" /><br>';
+				
+		echo $phone. ' - '. $email;
+		
+		echo '<br>'.$description;
 	
 	?>
 				
