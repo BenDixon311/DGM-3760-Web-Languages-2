@@ -1,10 +1,11 @@
 <?php 
 $employee_id=$_GET['id'];
 
-$dbconnect = mysqli_connect('localhost','bendix7_dgm3760','epitaph311','bendix7_dgm3760') or die('unable to connect to database');
+require_once('variables.php');
 
+$dbconnect = mysqli_connect(HOST, USER, PASSWORD, DB_NAME) or die('unable to connect');
 
-$query = "SELECT * FROM Employees WHERE id = $employee_id";
+$query = "SELECT * FROM employee_db WHERE id = $employee_id";
 
 
 
@@ -20,23 +21,18 @@ $found = mysqli_fetch_array($result);
 <head>
 	<meta charset="utf-8">
 	<title>Update Employee</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
 <body id="home">
 	
-	<!--navigation-->
-	<div class="navigation">
-		
-		<ul class="myNav">
-	<li><a href="viewall.php">View All Employees</a></li>
-		
-		<li><a href="delete.php">Delete Employee</a></li>
-		
-		<li><a href="index.html">Add Employee</a></li>
-	</ul>
-	</div>
+	<?php
+		include_once('navbar.php');
+	?>
 	
 <div class="container">
 	
@@ -56,16 +52,28 @@ $found = mysqli_fetch_array($result);
 		<fieldset>
 			<legend>DETAILS</legend>
         Department: <select name="dept">
-						<option> <?php echo $found['dept'];?></option>
+						<option> <?php echo $found['expertise'];?></option>
 						<option>------------</option>
 						<option>Design</option>
 						<option>Development</option>
-						<option>Human Resources</option>
+						<option>Marketing</option>
 						<option>Management</option>
 		
 					</select><br>
         Phone: <input type="tel" name="phone"  value="<?php echo $found['phone'];?>"><br>
 		</fieldset>
+		
+		Email: <input type = "email" name = "email" value="<?php echo $found['email'];?>"><br>
+			
+		Description: <textarea type="text" name="description"><?php echo $found['description'];?></textarea>
+		</fieldset>
+		
+		<fieldset>
+			<legend>IMAGE</legend>
+		Photo: <input type="file" name="photo">
+			<br><span>image file format MUST be .jpg</span><br>
+			<span>Maximum image size is 150px X 200px</span>
+    </fieldset>
 		
 		
 		<input type="hidden" name = "id" value = "<?php echo $employee_id; ?>">

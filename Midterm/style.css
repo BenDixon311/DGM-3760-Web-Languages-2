@@ -25,7 +25,7 @@ body {
 
 
 .navigation {
-	max-width: 500px;
+	max-width: 400px;
 	width: 100%;
 	height: 200px;
 	margin: 0 auto;
@@ -174,6 +174,30 @@ body {
 
   box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.5);
 }
+
+a.approve {
+	text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #4CAF50;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}
+
+a.delete {
+	text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+  border: none;
+  background: #DF070B;
+  color: #FFF;
+  margin: 0 0 5px;
+  padding: 10px;
+  font-size: 15px;
+}	
 
 .copyright {
   text-align: center;

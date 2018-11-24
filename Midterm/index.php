@@ -16,8 +16,9 @@ $result = mysqli_query($dbconnect, $query) or die ('failed, you suck');
 <html>
 <head>
 <meta charset="utf-8">
-<title>Delete Employee Records</title>
-			<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<title>Employees</title>
+		
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -25,29 +26,33 @@ $result = mysqli_query($dbconnect, $query) or die ('failed, you suck');
 
 <body>
 	
-<?php
+	<?php
 		include_once('navbar.php');
 	?>
-	
-	<div class="container">
-		<form class="contact">
+		
+		<div class="container">
+
+			<form class="contact">
 	
 	<?php
 		while ($row = mysqli_fetch_array($result)) {
 			
-			echo '<p>';
-			echo $row['last'] . ', '. $row['first']. ' - '.$row['dept'];
+			echo '<h2> <a href="details.php?id='.$row['id'].'">';
+			echo $row['last'] . ', '. $row['first']. '</a></h2> - '.$row['expertise'];
 			
-			echo ' - <a href="confirmdelete.php?id='.$row['id'].'">DELETE</a>';
 			
-			echo '</p>';
+			
+		
 		}
 	
 	
 	?>
-			
-			</div>
-	</div>
+		</form>
+		
+		</div>
 	
 </body>
+	
+	
+
 </html>
