@@ -34,17 +34,21 @@ $result = mysqli_query($dbconnect, $query) or die ('failed, you suck');
 
 			<form class="contact">
 	
+				<a href="addemployee.php"><button class="contact-submit">Add New Employee</button></a>			
+				
 	<?php
+				
+				
 		while ($row = mysqli_fetch_array($result)) {
 			
-			echo '<p> <a href="details.php?id='.$row['id'].'">';
-			echo $row['last'] . ', '. $row['first']. ' - '.$row['dept'];
-			echo '</a>';
+			echo '<p> <h3><a href="details.php?id='.$row['id'].'">';
+			echo $row['last'] . ', '. $row['first'] .' '.$row['dept'];
+			echo '</a></h3>';
 			
-			echo '  -  <a href="update.php?id='.$row['id'].'">UPDATE</a>';
-			echo ' - <a href="confirmdelete.php?id='.$row['id'].'">DELETE</a>';
+			echo '<a class = "update" href="update.php?id='.$row['id'].'">UPDATE</a>';
+			echo '<a class = "delete" href="confirmdelete.php?id='.$row['id'].'">DELETE</a>';
 			
-			echo '</p>';
+			echo '<br><hr></p>';
 		}
 	
 	

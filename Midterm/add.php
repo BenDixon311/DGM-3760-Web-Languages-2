@@ -105,18 +105,13 @@ mysqli_close($dbconnect);
 
 			<form class="contact">
 	<?php
-		echo '<h2>'.$found['first']. ' ' .$found['last'] . '</h2>';
-		echo '<h4><i>'.$found['expertise'].'</i></h4>';
-					
-		echo '<img src="'.$filepath.$found['photo'].'" />';
-		echo '<p>Phone: ';
-		echo $found['phone'];
-		echo '</p>';
-		echo '<p>Email: ';
-		echo '<a href="mailto:'.$found['email'].'">'.$found['email'].'</a>';
-		echo '</p>';
-		echo '<p>';
-		echo $found['description'];
+		echo "$first $last <br>";
+		echo '<img src="'.$filepath.$filename.'" /><br>';
+				
+		echo $phone.'<br>';
+		echo $email;
+		
+		echo '<br>'.$description;
 	
 	?>
 				
