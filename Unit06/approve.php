@@ -1,6 +1,6 @@
 <?php
 
-require_once('authorize.php');
+
 
 require_once('variables.php');
 

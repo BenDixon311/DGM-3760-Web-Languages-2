@@ -1,4 +1,3 @@
-
 <?php
   // User name and password for authentication
   $username = 'test';
