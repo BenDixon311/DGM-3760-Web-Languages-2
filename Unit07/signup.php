@@ -1,4 +1,6 @@
-	<?php
+<!-- cookies ARE NOT SETTING HERE -->	
+
+<?php
 
 	
 		require_once('variables.php');
