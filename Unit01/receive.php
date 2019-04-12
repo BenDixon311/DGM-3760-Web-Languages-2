@@ -1,7 +1,5 @@
 <?php
-error_reporting(-1);
-ini_set('display_errors', 'On');
-set_error_handler("var_dump");
+
 
 $gender = $_POST['gender'];
 $name = $_POST['name'];
@@ -26,19 +24,12 @@ Color: $color
 
 ";
 
-echo $gender;
-echo $email;
-echo $phone;
-echo $color;
-
-echo $to;
-echo $subject;
-echo $message;
+echo '';
 
 //SEND EMAIL
 
 	if (mail($to, $subject, $message, "FROM: ".$email)) {
-		echo '<h3>Your message has been sent</h3>';
+		
 	}
 	else {
 		echo '<h3>Something went wrong, try again</h3>';

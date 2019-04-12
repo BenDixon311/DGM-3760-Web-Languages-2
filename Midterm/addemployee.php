@@ -2,24 +2,21 @@
 <html lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>Assignment 5 - Managing Records</title>
+	<title>Midterm - Employee Database</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 	<link rel="stylesheet" href="style.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 </head>
 
 <body id="home">
 	
 	<!--navigation-->
-	<div class="navigation">
-		
-		<ul class="myNav">
-	<li><a href="viewall.php">View All Employees</a></li>
-		
-		<li><a href="delete.php">Delete Employee</a></li>
-		
-		<li><a href="index.html">Add Employee</a></li>
-	</ul>
-	</div>
+
+	<?php
+		include_once('navbar.php');
+	?>
 	
 <div class="container">
 	
@@ -38,14 +35,18 @@
 		</fieldset>
 		<fieldset>
 			<legend>DETAILS</legend>
-        Department: <select name="dept">
+        Area of Expertise: <select name="expertise">
 						<option>Design</option>
 						<option>Development</option>
-						<option>Human Resources</option>
+						<option>Marketing</option>
 						<option>Management</option>
 		
 					</select><br>
         Phone: <input type="tel" name="phone" required><br>
+			
+		Email: <input type = "email" name = "email" required><br>
+			
+		Description: <textarea type="text" name="description" required></textarea>
 		</fieldset>
 		
 		<fieldset>
